@@ -1,0 +1,14 @@
+@model todoMvc.Models.TodoItem
+@{
+    ViewBag.Title = "Nova Tarefa";
+}
+
+<h2>Adicionar Tarefas</h2>
+
+@using (Html.BeginForm())
+{
+    <label>Descrição:</label>
+    @Html.textBoxFor(m => m.Descricao)
+    <br />
+    <input type="submit" value="Salvar"/>
+}

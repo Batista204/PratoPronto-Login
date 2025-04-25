@@ -1,0 +1,14 @@
+@model List<TodoMvcLogin.Model.TodoItem>
+@{
+    ViewBag.Title = "Tarefas";
+}
+
+<h2>Lista de tarefas</h2>
+<a href="@Url.Action("Create")">Adicionar Tarefas</a>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.Descricao</li>
+    }
+</ul>
