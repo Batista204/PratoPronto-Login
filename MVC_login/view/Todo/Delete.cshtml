@@ -1,0 +1,24 @@
+@model PratoPronto.Models.Prato
+
+@{
+    ViewBag.Title = "Excluir Prato";
+}
+
+<h2>Excluir Prato</h2>
+
+<div>
+    <h4>Você tem certeza que quer excluir este prato?</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Nome</dt>
+        <dd>@Model.Nome</dd>
+        <dt>Preço</dt>
+        <dd>@Model.Preco.ToString("C")</dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary" })
+    }
+</div>
