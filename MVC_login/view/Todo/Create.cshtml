@@ -1,14 +1,44 @@
-@model todoMvc.Models.TodoItem
+@model PratoPronto.Models.Prato
+
 @{
-    ViewBag.Title = "Nova Tarefa";
+    ViewBag.Title = "Adicionar Prato";
 }
 
-<h2>Adicionar Tarefas</h2>
+<h2>Adicionar Prato</h2>
 
-@using (Html.BeginForm())
-{
-    <label>Descrição:</label>
-    @Html.textBoxFor(m => m.Descricao)
-    <br />
-    <input type="submit" value="Salvar"/>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Nome)
+            @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Descricao)
+            @Html.TextAreaFor(m => m.Descricao, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Preco)
+            @Html.TextBoxFor(m => m.Preco, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Foto)
+            @Html.TextBoxFor(m => m.Foto, new { @class = "form-control" })
+            <small>Coloque o caminho da imagem (ex: /Images/prato1.jpg)</small>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Categoria)
+            @Html.TextBoxFor(m => m.Categoria, new { @class = "form-control" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
 }
