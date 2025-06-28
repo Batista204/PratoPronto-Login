@@ -1,0 +1,19 @@
+@model PratoPronto.Models.Prato
+
+@{
+    ViewBag.Title = "Detalhes do Prato";
+}
+
+<h2>@Model.Nome</h2>
+
+<p><strong>Categoria:</strong> @Model.Categoria</p>
+<p><strong>Descrição:</strong> @Model.Descricao</p>
+<p><strong>Preço:</strong> @Model.Preco.ToString("C")</p>
+<p>
+    <img src="@Model.Foto" alt="Foto" width="200" />
+</p>
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>
